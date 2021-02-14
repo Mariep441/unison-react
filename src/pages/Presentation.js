@@ -1,26 +1,20 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faExternalLinkAlt, faTimesCircle, faCheckCircle, faCalendarAlt, faCodeBranch, faShoppingCart, faFolder, faMapMarkedAlt, faPager, faFileCode, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faExternalLinkAlt, faTimesCircle, faCheckCircle, faCalendarAlt, faCodeBranch, faShoppingCart, faFolder, faMapMarkedAlt, faPager, faFileCode, faDownload, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBootstrap, faGithub, faJs, faReact, faSass } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Card, Image, Button, Container, ListGroup, Tooltip, OverlayTrigger, Form, Navbar, Nav, Badge } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import Code from "../components/CodeEditor";
 import GitHubButton from 'react-github-btn';
 
-import { Routes } from "../routes";
+import { Routes } from "../router/AppRouter";
 import ThemesbergLogoIcon from "../assets/img/themesberg.svg";
 import ThemesbergLogo from "../assets/img/themesberg-logo.svg";
 import MockupPresentation from "../assets/img/mockup-presentation.png";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
-import MapboxImg from "../assets/img/mockup-map-presentation.png";
-import CalendarImg from "../assets/img/mockup-calendar-presentation.png";
-import ReactMockupImg from "../assets/img/react-mockup.png";
-import BS5IllustrationsImg from "../assets/img/illustrations/bs5-illustrations.svg";
-import BS5Logo from "../assets/img/technologies/bootstrap-5-logo.svg";
 import ReactLogo from "../assets/img/technologies/react-logo.svg";
 
-import pages from "../data/pages";
+
 import features from "../data/features";
 
 export default () => {
@@ -31,7 +25,6 @@ export default () => {
       <Col xs={6} className="mb-5">
         <Card.Link as={Link} to={link} className="page-preview page-preview-lg scale-up-hover-2">
           <Image src={image} className="shadow-lg rounded scale" alt="Dashboard page preview" />
-
           <div className="text-center show-on-hover">
             <h6 className="m-0 text-center text-white">
               {name} <FontAwesomeIcon icon={faExternalLinkAlt} className="ms-2" />
@@ -83,7 +76,7 @@ export default () => {
         <Container className="position-relative justify-content-between px-3">
           <Navbar.Brand as={HashLink} to="#home" className="me-lg-3 d-flex align-items-center">
             <Image src={ReactHero} />
-            <span className="ms-2 brand-text d-none d-md-inline">Volt React</span>
+            <span className="ms-2 brand-text d-none d-md-inline">Unison React</span>
           </Navbar.Brand>
 
           <div className="d-flex align-items-center">
@@ -96,7 +89,9 @@ export default () => {
                 <Nav.Link as={HashLink} to="#download">Upgrade to Pro</Nav.Link>
               </Nav>
             </Navbar.Collapse>
-            <Button as={HashLink} to="#download" variant="outline-white" className="ms-3"><FontAwesomeIcon icon={faDownload} className="me-1" /> Download</Button>
+            <Button variant="outline-white" as={Link} to={Routes.Signin.path} className="ms-3">
+              <FontAwesomeIcon icon={faSignInAlt} className="me-1" /> Sign In
+              </Button>
           </div>
         </Container>
       </Navbar>
@@ -169,87 +164,7 @@ export default () => {
           </Row>
         </Container>
       </div>
-      <section className="section section-md bg-soft pt-lg-3" id="features">
-        <Container>
-          <Row className="justify-content-between align-items-center mb-5 mb-lg-7">
-            <Col lg={5} className="order-lg-2 mb-5 mb-lg-0">
-              <h2>Powered by React.js</h2>
-              <p className="mb-3 lead fw-bold">The most popular front-end library in the world</p>
-              <p className="mb-4">Volt React is an admin dashboard template that is built using React.js components using react hooks and a data-driven structure that can kick-start your app in no time.</p>
-              <Button as={Link} to={Routes.DashboardOverview.path} variant="secondary" target="_blank">Live Demo <FontAwesomeIcon icon={faExternalLinkAlt} className="ms-1" /></Button>
-              <Button as={HashLink} to="#download" variant="outline-primary" className="ms-3"><FontAwesomeIcon icon={faShoppingCart} className="me-1" /> Download</Button>
-            </Col>
-            <Col lg={6} className="order-lg-1">
-              <Image src={ReactMockupImg} alt="Calendar Preview" />
-            </Col>
-          </Row>
-          <Row className="justify-content-between align-items-center mb-5 mb-lg-7">
-            <Col lg={5}>
-              <h2>React.js Components</h2>
-              <p className="mb-3 lead fw-bold">100+ premium UI elements based on Bootstrap 5</p>
-              <p className="mb-4">We've built over 100 React.js powered components to be used throughout your application saving you time kickstarting your project.</p>
-              <p className="mb-4">Check out the components and use our live React.js component editor to try the code.</p>
-              <Button as={Link} to={Routes.Forms.path} variant="secondary" className="mb-5 mb-lg-0" target="_blank"><FontAwesomeIcon icon={faReact} className="me-1" /> Components examples</Button>
-            </Col>
-            <Col lg={6} className="rounded shadow pt-3">
-              <Code scope={{ Form, Button }} code={`<Form>
-  <Form.Group id="frameworks" className="mb-3">
-    <Form.Label>Example select</Form.Label>
-    <Form.Select>
-      <option defaultValue>Open this select menu</option>
-      <option>One</option>
-      <option>Two</option>
-      <option>Three</option>
-    </Form.Select>
-  </Form.Group>
-  <Button variant="primary" className="m-1">Primary</Button>
-</Form>`} language="jsx" />
-            </Col>
-          </Row>
-          <Row className="justify-content-between align-items-center mb-5 mb-lg-7">
-            <Col lg={5} className="order-lg-2 mb-5 mb-lg-0">
-              <h2 className="d-flex align-items-center">Mapbox <Badge pill bg='secondary' text="dark" className="badge-md ms-3 mb-0 fs-6">Pro</Badge></h2>
-              <p className="mb-3 lead fw-bold">Markers and cards integration with Leaflet.js</p>
-              <p className="mb-4">You can use this map to add markers with custom cards and show them on a map using our custom MapBox integration with Leaflet.js</p>
-              <Button href="https://demo.themesberg.com/volt-pro-react/#/map" className="me-3" variant="secondary" target="_blank"><FontAwesomeIcon icon={faMapMarkedAlt} className="me-2" /> Demo Map</Button>
-              <Button href="https://demo.themesberg.com/volt-pro-react/#/plugins/map" variant="outline-primary" target="_blank"><FontAwesomeIcon icon={faBook} className="me-2" /> Guide</Button>
-            </Col>
-            <Col lg={6} className="order-lg-1">
-              <Image src={MapboxImg} alt="MapBox Leaflet.js Custom Integration Mockup" />
-            </Col>
-          </Row>
-          <Row className="justify-content-between align-items-center mb-5 mb-lg-7">
-            <Col lg={5}>
-              <h2 className="d-flex align-items-center">Calendar <Badge pill bg='secondary' text="dark" className="badge-md ms-3 mb-0 fs-6">Pro</Badge></h2>
-              <p className="mb-3 lead fw-bold">
-                Advanced FullCalendar.js integration
-              </p>
-              <p className="mb-4">
-                We created a fully editable calendar where you can add, edit and delete events for your admin dashboard.
-              </p>
-              <Button href="https://demo.themesberg.com/volt-pro-react/#/calendar" className="me-3" variant="secondary" target="_blank"><FontAwesomeIcon icon={faCalendarAlt} className="me-2" /> Demo Calendar</Button>
-              <Button href="https://demo.themesberg.com/volt-pro-react/#/plugins/calendar" variant="outline-primary" target="_blank"><FontAwesomeIcon icon={faBook} className="me-2" /> Guide</Button>
-            </Col>
-            <Col lg={6}>
-              <Image src={CalendarImg} alt="Calendar Preview" />
-            </Col>
-          </Row>
-          <Row className="justify-content-between align-items-center">
-            <Col lg={5} className="order-lg-2 mb-5 mb-lg-0">
-              <h2>Bootstrap 5</h2>
-              <p className="mb-3 lead fw-bold">
-                Latest version of Bootstrap 5
-              </p>
-              <p className="mb-4">
-                Volt React is built using the latest version of Bootstrap 5 and we only used Vanilla Javascript for everything including the plugins
-              </p>
-            </Col>
-            <Col lg={6} className="col-lg-6 order-lg-1">
-              <Image src={BS5IllustrationsImg} alt="Front pages overview" />
-            </Col>
-          </Row>
-        </Container>
-      </section>
+     
       <section className="section section-sm pt-0" id="pages">
         <Container>
           <Row className="justify-content-center mb-5 mb-lg-6">
@@ -261,9 +176,6 @@ export default () => {
                 Every page from Volt has been carefully built to provide all the necessary pages your startup will require
               </p>
             </Col>
-          </Row>
-          <Row className="mb-5">
-            {pages.map(page => <PagePreview key={`page-${page.id}`} {...page} />)}
           </Row>
         </Container>
       </section>
@@ -293,9 +205,6 @@ export default () => {
               <div className="d-none d-lg-block mt-5">
                 <h4>The perfect folder structure for your project</h4>
                 <p className="lead mb-4">The folder structure is based on the popular <code>create-react-app</code> repository using Sass source files for CSS preprocessing.</p>
-                <Button as={Link} variant="secondary" size="md" to={Routes.DocsFolderStructure.path} target="_blank" className="text-dark">
-                  <FontAwesomeIcon icon={faCodeBranch} className="me-2" /> Folder Structure
-                </Button>
               </div>
             </Col>
             <Col xs={12} lg={6} className="order-lg-first d-flex justify-content-center">
@@ -358,9 +267,7 @@ export default () => {
                   </div>
                 </div>
               </div>
-              <p className="mt-4 text-white text-center mb-0">
-                Looks unfamiliar? Don’t worry! Our <Link to={Routes.DocsQuickStart.path} className="text-white text-underline fw-bold" target="_blank">documentation</Link> has got you covered.
-              </p>
+
             </Col>
           </Row>
         </Container>
@@ -463,12 +370,6 @@ export default () => {
             <Col xs={12} className="text-center">
               <h2 className="h5 text-gray fw-normal mb-4">Available in the following technologies:</h2>
               <div>
-                <Card.Link href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard" target="_blank" className="me-3">
-                  <OverlayTrigger placement="top" trigger={['hover', 'focus']} overlay={<Tooltip>Bootstrap 5 · The most popular HTML, CSS, and JS library in the world.</Tooltip>}>
-                    <Image src={BS5Logo} className="image image-sm" />
-                  </OverlayTrigger>
-                </Card.Link>
-
                 <Card.Link href="https://themesberg.com/product/dashboard/volt-react" target="_blank" className="me-3">
                   <OverlayTrigger placement="top" trigger={['hover', 'focus']} overlay={<Tooltip>React · A JavaScript library for building user interfaces.</Tooltip>}>
                     <Image src={ReactLogo} className="image image-sm" />
@@ -501,10 +402,8 @@ export default () => {
             <Col xs={6} md={2} className="mb-5 mb-lg-0">
               <span className="h5">Other</span>
               <ul className="links-vertical mt-2">
-                <li>
-                  <Card.Link as={Link} to={Routes.DocsQuickStart.path} target="_blank">Getting started</Card.Link>
-                </li>
-                <li><Card.Link as={Link} to={Routes.DocsChangelog.path} target="_blank">Changelog</Card.Link></li>
+                
+
                 <li><Card.Link target="_blank" href="https://themesberg.com/licensing">License</Card.Link></li>
               </ul>
             </Col>

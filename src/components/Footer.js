@@ -4,11 +4,10 @@ import moment from "moment-timezone";
 import { Row, Col, Card, OverlayTrigger, Tooltip, Image, Button } from '@themesberg/react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs, faDownload, faRocket } from "@fortawesome/free-solid-svg-icons";
-import BS5Logo from "../assets/img/technologies/bootstrap-5-logo.svg";
 import ReactLogo from "../assets/img/technologies/react-logo.svg";
 import GitHubButton from 'react-github-btn';
 import { Link } from 'react-router-dom';
-import { Routes } from "../routes";
+import { Routes } from "../router/AppRouter";
 
 export default (props) => {
   const currentYear = moment().get("year");
@@ -34,7 +33,7 @@ export default (props) => {
             <div className="d-flex justify-content-center">
               <Card.Link href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard" target="_blank">
                 <OverlayTrigger placement="top" trigger={['hover', 'focus']} overlay={<Tooltip>Bootstrap 5 · The most popular HTML, CSS, and JS library in the world.</Tooltip>}>
-                  <Image src={BS5Logo} className="image image-xs" />
+
                 </OverlayTrigger>
               </Card.Link>
 

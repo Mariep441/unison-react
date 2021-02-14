@@ -1,46 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Routes } from "../routes";
+import { Routes } from "../router/AppRouter";
 
 // pages
 import Presentation from "./Presentation";
-import Upgrade from "./Upgrade";
-import DashboardOverview from "./dashboard/DashboardOverview";
-import Transactions from "./Transactions";
+import DashboardOverview from "./DashboardOverview";
+import Tasks from "./TasksList";
+import Calendars from "./Calendars";
+import Checklists from "./Checklists";
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
-import Signin from "./examples/Signin";
-import Signup from "./examples/Signup";
-import ForgotPassword from "./examples/ForgotPassword";
-import ResetPassword from "./examples/ResetPassword";
-import Lock from "./examples/Lock";
-import NotFoundPage from "./examples/NotFound";
-import ServerError from "./examples/ServerError";
-
-
+import Signin from "./Signin";
+import Signup from "./Signup";
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
+import Lock from "./Lock";
+import NotFoundPage from "./NotFound";
+import ServerError from "./ServerError";
 
 // components
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
-
-import Accordion from "./components/Accordion";
-import Alerts from "./components/Alerts";
-import Badges from "./components/Badges";
-import Breadcrumbs from "./components/Breadcrumbs";
-import Buttons from "./components/Buttons";
-import Forms from "./components/Forms";
-import Modals from "./components/Modals";
-import Navs from "./components/Navs";
-import Navbars from "./components/Navbars";
-import Pagination from "./components/Pagination";
-import Popovers from "./components/Popovers";
-import Progress from "./components/Progress";
-import Tables from "./components/Tables";
-import Tabs from "./components/Tabs";
-import Tooltips from "./components/Tooltips";
-import Toasts from "./components/Toasts";
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
@@ -104,28 +86,12 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
-    <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
-    <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
+    <RouteWithSidebar exact path={Routes.Tasks.path} component={Tasks} />
+    <RouteWithSidebar exact path={Routes.Calendars.path} component={Calendars} />
+    <RouteWithSidebar exact path={Routes.Checklists.path} component={Checklists} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
 
-    {/* components */}
-    <RouteWithSidebar exact path={Routes.Accordions.path} component={Accordion} />
-    <RouteWithSidebar exact path={Routes.Alerts.path} component={Alerts} />
-    <RouteWithSidebar exact path={Routes.Badges.path} component={Badges} />
-    <RouteWithSidebar exact path={Routes.Breadcrumbs.path} component={Breadcrumbs} />
-    <RouteWithSidebar exact path={Routes.Buttons.path} component={Buttons} />
-    <RouteWithSidebar exact path={Routes.Forms.path} component={Forms} />
-    <RouteWithSidebar exact path={Routes.Modals.path} component={Modals} />
-    <RouteWithSidebar exact path={Routes.Navs.path} component={Navs} />
-    <RouteWithSidebar exact path={Routes.Navbars.path} component={Navbars} />
-    <RouteWithSidebar exact path={Routes.Pagination.path} component={Pagination} />
-    <RouteWithSidebar exact path={Routes.Popovers.path} component={Popovers} />
-    <RouteWithSidebar exact path={Routes.Progress.path} component={Progress} />
-    <RouteWithSidebar exact path={Routes.Tables.path} component={Tables} />
-    <RouteWithSidebar exact path={Routes.Tabs.path} component={Tabs} />
-    <RouteWithSidebar exact path={Routes.Tooltips.path} component={Tooltips} />
-    <RouteWithSidebar exact path={Routes.Toasts.path} component={Toasts} />
 
   
     <Redirect to={Routes.NotFound.path} />

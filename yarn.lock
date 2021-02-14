@@ -1179,6 +1179,63 @@
   dependencies:
     prop-types "^15.7.2"
 
+"@fullcalendar/bootstrap@^5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/bootstrap/-/bootstrap-5.5.0.tgz#0d2a06123b1e5ccd98c3f724c3c12b09bf0abf01"
+  integrity sha512-jFU4IW4NsIi9VHtJ+LHTpTOoy7qgWPDGiZjXyp5gBwilYR+MJpEH7vJeIztaYEIpcGt2WDihlCOev9GSjz6hiQ==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/common@~5.5.0":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/common/-/common-5.5.1.tgz#cc3679408b625b35d6f3f05bdca73f3700d0d370"
+  integrity sha512-tfVlX4aBHxCDJAVkUm93FXScOhmdz6/vUy/ISfpNeRNYuUvhJbmjoH67DpGNdS3we2n6/dVte021TE4Bbo4uRA==
+  dependencies:
+    ical.js "^1.4.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/daygrid@^5.5.0", "@fullcalendar/daygrid@~5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-5.5.0.tgz#48f943d070a07f88cd6f8170fb757d3038239bd6"
+  integrity sha512-O/59C3ihElLsPnkjlD1xUgAf3v7WEARXVO+wZfASKtK14Ccux2MA9mWUA1+80m9q8on7SYL36ORhrea7GKy/qQ==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/interaction@^5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-5.5.0.tgz#8fe3f2b89c55fad5835a9c74f7a95a7d97419afe"
+  integrity sha512-LKc4VeESBkBkrI/sAtV++f4qUleYyt7STBrnuc5Mpojv7jg5x5XZ1rfOarLwRbEYSvbo6CwccDrsaLTbC1Qk2A==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/moment@^5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/moment/-/moment-5.5.0.tgz#687009d08e5d18ce8d6ee91aad2d806fddf8c70e"
+  integrity sha512-/Gko/SKOyJo9PuPgr7QwXrcpKsFP0A9qHvjIXhI2pGRmaf7SVo2+0g17M8eBmKeBn5iGRaZXJ8ps60pYe3kl/g==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/react@^5.5.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-5.5.0.tgz#4a74e816ee67c4de59ca6bae1a658e6e72c7970a"
+  integrity sha512-ss109y/kYIb9mwmE9dZc5c2o5I4CoqREDqLNAur83CGC5NvCH8gRzZXEilZz1E6ORuziBEYkPPtREn7Mp+6lYg==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    tslib "^2.0.3"
+
+"@fullcalendar/timegrid@^5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-5.5.1.tgz#b73eb9e454808313e7146dc5df6105e9b3aa80cb"
+  integrity sha512-bo9DbPcx9PMXtAFP8tsFaQ1FGxUM/FoaQKah/eFVT8ueI5WQqSfWupM5yyGbHOmKgD65l8WhPcuamm6v01Pasw==
+  dependencies:
+    "@fullcalendar/common" "~5.5.0"
+    "@fullcalendar/daygrid" "~5.5.0"
+    tslib "^2.0.3"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -5643,6 +5700,11 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
+ical.js@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/ical.js/-/ical.js-1.4.0.tgz#fc5619dc55fe03d909bf04362aa0677f4541b9d7"
+  integrity sha512-ltHZuOFNNjcyEYbzDgjemS7LWIFh2vydJeznxQHUh3dnarbxqOYsWONYteBVAq1MEOHnwXFGN2eskZReHclnrA==
+
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -9379,6 +9441,11 @@ react-live@^2.2.3:
     react-simple-code-editor "^0.10.0"
     unescape "^1.0.1"
 
+react-moment@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-1.1.1.tgz#5fe9fb257039590c804e2b3aedfc3ceb0a6ffb16"
+  integrity sha512-WjwvxBSnmLMRcU33do0KixDB+9vP3e84eCse+rd+HNklAMNWyRgZTDEQlay/qK6lcXFPRuEIASJTpEt6pyK7Ww==
+
 react-overlays@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-4.1.1.tgz#0060107cbe1c5171a744ccda3fbf0556d064bc5f"
@@ -10850,6 +10917,16 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2-react-content@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-3.2.2.tgz#56f6bf39b82e5e523f0adda7854549fc737f2116"
+  integrity sha512-PC1BG86ZrNOwF9chtBKEH3wc3QIbkOcH4sw2Q45yKkvcFvDwF4JyqSx+usSYODS2IAaq7AmNn77eDNrhCT0Vng==
+
+sweetalert2@^10.14.1:
+  version "10.14.1"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.14.1.tgz#224151f9bc7fa4677ce1e0f52813157b14d28650"
+  integrity sha512-DI0XsgWSvcMxf58m5FoME9UCPiI5MV+ms819+d5Xly6Z1HvQaQ4sASrcA915g+ow1lsYUnfQLtByqIiosEGd/Q==
 
 symbol-observable@^1.2.0:
   version "1.2.0"
