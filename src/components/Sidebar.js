@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBoxOpen, faChartPie, faCog, faHandHoldingUsd, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBoxOpen, faChartPie, faCog, faCloudUploadAlt, faTable, faTimes, faTasks } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -70,7 +70,7 @@ export default (props = {}) => {
   return (
     <>
       <Navbar expand={false} collapseOnSelect variant="dark" className="navbar-theme-primary px-4 d-md-none">
-        <Navbar.Brand className="me-lg-5" as={Link} to={Routes.DashboardOverview.path}>
+        <Navbar.Brand className="me-lg-5" as={Link} to={Routes.Dashboard.path}>
           <Image src={ReactHero} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle as={Button} aria-controls="main-navbar" onClick={onCollapse}>
@@ -89,15 +89,15 @@ export default (props = {}) => {
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Unison React" link={Routes.Presentation.path} image={ReactHero} />
-              <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
-              <NavItem title="Tasks" icon={faHandHoldingUsd} link={Routes.Tasks.path} />
-              <CollapsableNavItem eventKey="tables/" title="Views" icon={faTable}>
-                <NavItem title="Kanban View" link={Routes.BootstrapTables.path} />
-                <NavItem title="Gantt Diagram" link={Routes.BootstrapTables.path} />
+              <NavItem title="Dashboard" link={Routes.Dashboard.path} icon={faChartPie} />
+              <CollapsableNavItem eventKey="tables/" title="Tasks Views" icon={faTable}>
+                <NavItem icon={faTasks} title="Tasks List" link={Routes.Tasks.path} />  
+                <NavItem icon={faTasks} title="Kanban View" link={Routes.Kanban.path} />
+                <NavItem icon={faTasks} title="Gantt Diagram" link={Routes.BootstrapTables.path} />
               </CollapsableNavItem>
               <NavItem title="Checklists" icon={faCog} link={Routes.Checklists.path} />
               <NavItem title="Calendars" icon={faCog} link={Routes.Calendars.path} />
-              <NavItem title="Upload Files" icon={faCog} link={Routes.Settings.path} />
+              <NavItem title="Upload Files" icon={faCloudUploadAlt} link={Routes.Settings.path} />
               <Dropdown.Divider className="my-3 border-indigo" />
 
            

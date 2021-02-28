@@ -1,14 +1,10 @@
-
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleDoubleRight, faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
-
 import { Routes } from "../router/AppRouter";
-import tasks from "../data/tasks";
-
-
+  
 const ValueChange = ({ value, suffix }) => {
   const valueIcon = value < 0 ? faAngleDown : faAngleUp;
   const valueTxtColor = value < 0 ? "text-danger" : "text-success";
@@ -23,71 +19,45 @@ const ValueChange = ({ value, suffix }) => {
   );
 };
 
-
-export const TasksTable = () => {
+const TaskTable = ({tasks, task, action}) => {
   const totalTasks = tasks.length;
-
+  
   const TableRow = (props) => {
-    const { invoiceNumber, subscription, price, issueDate, dueDate, status } = props;
-    const statusVariant = status === "Paid" ? "success"
-      : status === "Due" ? "warning"
-        : status === "Canceled" ? "danger" : "primary";
+    const { _id, name, description, deadline, priorityLevel, creator } = props;
 
-    return (
-      <tr>
-        <td>
-          <Card.Link as={Link} to={Routes.Invoice.path} className="fw-normal">
-            {invoiceNumber}
-          </Card.Link>
-        </td>
-        <td>
-          <span className="fw-normal">
-            {subscription}
-          </span>
-        </td>
-        <td>
-          <span className="fw-normal">
-            {issueDate}
-          </span>
-        </td>
-        <td>
-          <span className="fw-normal">
-            {dueDate}
-          </span>
-        </td>
-        <td>
-          <span className="fw-normal">
-            ${parseFloat(price).toFixed(2)}
-          </span>
-        </td>
-        <td>
-          <span className={`fw-normal text-${statusVariant}`}>
-            {status}
-          </span>
-        </td>
-        <td>
-          <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
-              <span className="icon icon-sm">
-                <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
-              </span>
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item>
-                <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
-              </Dropdown.Item>
-              <Dropdown.Item className="text-danger">
-                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </td>
-      </tr>
-    );
-  };
+
+        return (
+          <tr>
+            <td><Card.Link as={Link} to={Routes.Invoice.path} className="fw-normal">{name}</Card.Link></td>
+            <td><span className="fw-normal">{name}</span></td>
+            <td><span className="fw-normal">{description}</span></td>
+            <td><span className="fw-normal">{deadline}</span></td>
+            <td><span className="fw-normal">{priorityLevel}</span></td>
+            <td><span className="fw-normal">{creator}</span></td>
+            <td>
+              <Dropdown as={ButtonGroup}>
+                <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
+                  <span className="icon icon-sm">
+                    <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+                  </span>
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item> 
+                    <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                  </Dropdown.Item>
+                  <Dropdown.Item className="text-danger">
+                    <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </td>
+          </tr>
+        );
+      };
+
 
   const CustomPagination = (props) => {
     const [activeItem, setActiveItem] = React.useState(2);
@@ -118,6 +88,7 @@ export const TasksTable = () => {
       );
     };
 
+
   return (
     <Card border="light" className="table-wrapper table-responsive shadow-sm">
       <Card.Body className="pt-0">
@@ -125,8 +96,8 @@ export const TasksTable = () => {
           <thead>
             <tr>
               <th className="border-bottom">#</th>
-              <th className="border-bottom">Bill For</th>
-              <th className="border-bottom">Issue Date</th>
+              <th className="border-bottom">name</th>
+              <th className="border-bottom">description</th>
               <th className="border-bottom">Due Date</th>
               <th className="border-bottom">Total</th>
               <th className="border-bottom">Status</th>
@@ -134,7 +105,7 @@ export const TasksTable = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map(t => <TableRow key={`tasks-${t.invoiceNumber}`} {...t} />)}
+          {tasks.map(t => <TableRow key={`task-${t._id}`} {...t} />)}
           </tbody>
         </Table>
         <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
@@ -167,3 +138,5 @@ export const TasksTable = () => {
     </Col>
   );
 };
+
+export default TaskTable;

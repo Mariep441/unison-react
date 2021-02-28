@@ -4,17 +4,17 @@ import { Routes } from "../router/AppRouter";
 
 // pages
 import Presentation from "./Presentation";
-import DashboardOverview from "./DashboardOverview";
-import Tasks from "./TasksList";
-import Calendars from "./Calendars";
-import Checklists from "./Checklists";
+import Dashboard from "./DashboardPage";
+import Tasks from "./TasksListPage";
+import Calendars from "./CalendarsPage";
+import Kanban from "./TaskKanbanPage";
+import Checklists from "./ChecklistsPage";
 import Settings from "./Settings";
-import BootstrapTables from "./tables/BootstrapTables";
+import BootstrapTables from "./BootstrapTables";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
-import Lock from "./Lock";
 import NotFoundPage from "./NotFound";
 import ServerError from "./ServerError";
 
@@ -80,14 +80,14 @@ export default () => (
     <RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
     <RouteWithLoader exact path={Routes.ForgotPassword.path} component={ForgotPassword} />
     <RouteWithLoader exact path={Routes.ResetPassword.path} component={ResetPassword} />
-    <RouteWithLoader exact path={Routes.Lock.path} component={Lock} />
     <RouteWithLoader exact path={Routes.NotFound.path} component={NotFoundPage} />
     <RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
 
     {/* pages */}
-    <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+    <RouteWithSidebar exact path={Routes.Dashboard.path} component={Dashboard} />
     <RouteWithSidebar exact path={Routes.Tasks.path} component={Tasks} />
     <RouteWithSidebar exact path={Routes.Calendars.path} component={Calendars} />
+    <RouteWithSidebar exact path={Routes.Kanban.path} component={Kanban} />
     <RouteWithSidebar exact path={Routes.Checklists.path} component={Checklists} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />

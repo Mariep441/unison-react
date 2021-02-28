@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import TasksContextProvider from "./contexts/tasksContext";
+import ProcessesContextProvider from "./contexts/processesContext";
 
-import reportWebVitals from './reportWebVitals';
+
+import HomePage from "./pages/HomePage";
+import Kanban from "./pages/TaskKanbanPage";
+import TaskDetailsPage from './pages/TaskDetailsPage';
+import TasksListPage from './pages/TasksListPage';
+import AlertTasksPage from './pages/AlertTasksPage';
+import TaskFeedbackPage from "./pages/TaskFeedbackPage";
+import AddTaskFeedbackPage from './pages/addTaskFeedbackPage'
 
 // core styles
 import "./scss/volt.scss";
@@ -11,21 +20,25 @@ import "./scss/volt.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "react-datetime/css/react-datetime.css";
 
-import HomePage from "./pages/HomePage";
-import ScrollToTop from "./components/ScrollToTop";
 
-ReactDOM.render(
-  <HashRouter>
-    <ScrollToTop />
-    <HomePage />
-  </HashRouter>,
-  document.getElementById("root")
-);
+const App = () => {
+  return (
+    <BrowserRouter>
+      <div className="container-fluid">
+      <TasksContextProvider>
+      <  ProcessesContextProvider> 
+          <Switch>
+            <Route path="/feedbacks/:id" component={TaskFeedbackPage} />
+            <Route path="/feedbacks/form" component={AddTaskFeedbackPage} />
+            <Route path="/tasks/:id" component={TaskDetailsPage} />
+            <Route path="/" component={HomePage} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </ProcessesContextProvider>
+      </TasksContextProvider>
+      </div>
+  </BrowserRouter>
+  );
+};
 
-
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById("root"));
