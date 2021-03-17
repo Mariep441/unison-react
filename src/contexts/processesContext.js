@@ -4,7 +4,7 @@ import { getProcesses } from "../api/unison-server-api";
 export const ProcessesContext = createContext(null)
 
 const ProcessesContextProvider = props => {
-    const [processes, setProcesses] = useState([{ id: "0", name: "Process Name" }]);
+    const [processes, setProcesses] = useState([{ _id: "0", name: "Process Name" }]);
     useEffect(() => {
       getProcesses().then(allProcesses => {
         setProcesses([processes[0], ...allProcesses]);

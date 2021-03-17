@@ -7,7 +7,7 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Card, Form, Button, InputGroup } from '@themesberg/react-bootstrap';
 
 
-export const GeneralInfoForm = () => {
+export const GeneralInfoForm = (user) => {
   const [birthday, setBirthday] = useState("");
 
   return (
@@ -172,3 +172,4 @@ export const GeneralInfoForm = () => {
     </Card>
   );
 };
+

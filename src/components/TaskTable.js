@@ -19,7 +19,7 @@ const ValueChange = ({ value, suffix }) => {
   );
 };
 
-const TaskTable = ({tasks, task, action}) => {
+const TaskTable = ({tasks, action}) => {
   const totalTasks = tasks.length;
   
   const TableRow = (props) => {
@@ -28,12 +28,12 @@ const TaskTable = ({tasks, task, action}) => {
 
         return (
           <tr>
-            <td><Card.Link as={Link} to={Routes.Invoice.path} className="fw-normal">{name}</Card.Link></td>
-            <td><span className="fw-normal">{name}</span></td>
+            <td><Card.Link as={Link} to={`/tasks/${_id}`} className="fw-normal">{name}</Card.Link></td>
+            <td><span className="fw-normal">{description}</span></td>
             <td><span className="fw-normal">{description}</span></td>
             <td><span className="fw-normal">{deadline}</span></td>
             <td><span className="fw-normal">{priorityLevel}</span></td>
-            <td><span className="fw-normal">{creator}</span></td>
+            <td><span className="fw-normal">{priorityLevel}</span></td>
             <td>
               <Dropdown as={ButtonGroup}>
                 <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
@@ -43,13 +43,16 @@ const TaskTable = ({tasks, task, action}) => {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item> 
-                    <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
+                      <Link to={`/tasks/${_id}`}><h7><FontAwesomeIcon icon={faEye}/>  View Details</h7></Link>
                   </Dropdown.Item>
                   <Dropdown.Item>
-                    <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+                      <Link to={`/tasks/${_id}`}><h7><FontAwesomeIcon icon={faEdit}/>  Edit</h7></Link>
                   </Dropdown.Item>
                   <Dropdown.Item className="text-danger">
-                    <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+                      <Link to={`/tasks/${_id}`}><h7><FontAwesomeIcon icon={faTrashAlt}/>  Remove</h7></Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item className="text-danger">
+                      <Link to={`/tasks/${_id}/feedback`}><h7><FontAwesomeIcon icon={faTrashAlt}/> Add Feedback</h7></Link>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

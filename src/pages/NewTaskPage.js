@@ -1,8 +1,8 @@
-import React, {useState, useCallback } from 'react';
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Dropdown, Breadcrumb, } from '@themesberg/react-bootstrap';
-import { GeneralInfoForm } from "../components/Forms";
+import { NewTaskForm } from "../components/FormNewTask";
 
 
 export default () => {
@@ -14,22 +14,21 @@ export default () => {
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
             <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
             <Breadcrumb.Item>Unison</Breadcrumb.Item>
-            <Breadcrumb.Item active>Settings</Breadcrumb.Item>
+            <Breadcrumb.Item active>New Task</Breadcrumb.Item>
           </Breadcrumb>
         </div>
       </div>
 
       <Row className="justify-content-between align-items-center">
           <Col xs={8} md={6} lg={3} xl={4}>
-          <h4>Settings</h4>
+          <h4>New Task</h4>
           </Col>
      </Row>
 
  
       <Col xs={12} xl={12}>
-          <GeneralInfoForm />
+          <NewTaskForm />
       </Col>
     </>
   );
 };
-

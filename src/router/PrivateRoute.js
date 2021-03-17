@@ -1,29 +1,40 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useContext, useState, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Header from '../components/Header';
+import { AuthContext } from '../contexts/authContext' 
 
-export const PrivateRoute = ({
-  isAuthenticated,
-  component: Component,
-  ...rest
-}) => (
-  <Route
-    {...rest}
-    component={(props) =>
-      isAuthenticated ? (
-        <div>
-          <Header /> <Component {...props} />
-        </div>
-      ) : (
-        <Redirect to="/" />
-      )
-    }
-  />
-);
+// components
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
+import Preloader from "../components/Preloader";
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth && state.auth.isAuthenticated
-});
+export const PrivateRoute = props => {
+  const { component: Component, ...rest} = props;
+  const [loaded, setLoaded] = useState(false);
+  const context = useContext(AuthContext)
 
-export default connect(mapStateToProps)(PrivateRoute);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+  return context.isAuthenticated === true ? (
+    <Route {...rest} render={props => (
+      <>
+        <Preloader show={loaded ? false : true} />
+        <Sidebar />
+
+        <main className="content">
+          <Navbar />
+          <Component {...props} />
+        </main>
+      </>
+    )}
+    /> 
+  ) : (
+
+    <Redirect to={{pathname: "/signin", state: {from: props.location} }}/>
+  );
+};
+
+

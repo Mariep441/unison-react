@@ -3,7 +3,14 @@ export const Routes = {
     // pages
     Presentation: { path: "/" },
     Dashboard: { path: "/dashboard" },
-    Tasks: { path: "/taskslist" },
+    Tasks: { path: "/tasks" },
+    NewTask: { path: "/newTask" },
+    TaskDetails: { path: "/tasks/:_id" },
+    AddTaskFeedback: { path: "/feedbacks/form" },
+    TaskFeedback: { path: "/feedbacks/:_id" },
+
+    AlertTasks: {path: "/tasks/alerts" },
+
     Calendars: { path: "/calendars" },
     Checklists: { path: "/checklists" },
     Kanban: { path: "/Kanban" },

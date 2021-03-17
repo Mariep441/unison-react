@@ -1,10 +1,12 @@
 import React from "react";
 
-export default ({ task }) => {
+export default ({task}) => {
+
+  console.log(task)
   return (
     <>
       <h4>Overview</h4>
-      <p>{task.taskName}</p>
+      <h4>{task.name}</h4>
 
 
     </>

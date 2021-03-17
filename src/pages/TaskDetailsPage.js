@@ -5,8 +5,8 @@ import PageTemplate from "../components/TemplateTaskPage";
 import TaskFeedbacks from "../components/TaskFeedbacks";
 import useTask from "../hooks/useTask";
 
-const TaskPage = props => {
-  const { _id } = props.match.params;
+const TaskDetailsPage = props => {
+  const {_id} = props.match.params;
   const [task] = useTask(_id) 
   return (
     <>
@@ -35,7 +35,7 @@ const TaskPage = props => {
           </div>
         </div>
         <Route
-          path={`/tasks/:id/feedbacks`}
+          path={`/tasks/:_id/feedbacks`}
           render={props => <TaskFeedbacks task={task} {...props} />}
         />
       </>
@@ -46,4 +46,4 @@ const TaskPage = props => {
   );
 };
 
-export default withRouter(TaskPage);
+export default withRouter(TaskDetailsPage);

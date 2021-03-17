@@ -1,38 +1,35 @@
 
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp, faChartArea, faChartBar, faChartLine, faFlagUsa, faFolderOpen, faGlobeEurope, faPaperclip, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faChartArea, faChartBar, faChartLine, faFlagUsa, faCalendarAlt, faFolderOpen, faGlobeEurope, faPaperclip, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faBootstrap, faReact, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Card, Image, Button, ListGroup, ProgressBar } from '@themesberg/react-bootstrap';
-import { CircleChart, BarChart, SalesValueChart, SalesValueChartphone } from "./Charts";
+import { CircleChart, BarChart, SalesValueChart, SalesValueChartphone } from "./Chartist";
 import { Link } from "react-router-dom";
 
 
 
 export const TaskWidget = (props) => {
-  const {action, id, name,  description, priorityLevel, estimatedTimeToComplete,timeSpent, deadine,creator, icon, iconColor, category, title, period, percentage } = props;
+  const {action, id, name,  description, priorityLevel, estimatedTimeToComplete,timeSpent, startDate, deadline,creator, icon, iconColor, category, title, period, percentage } = props;
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
-  const kanbanClass =  percentage < 0 ? faAngleDown : faAngleUp;
-
 
   return (
     <Card border="light" className="shadow-sm">
       <Card.Body>
     
-            <div className="d-none d-sm-block">
-              <Link to={`/tasks/${id}`}><h3><FontAwesomeIcon icon={icon} /> {name}</h3></Link>
+            <div className="d-none d-sm-block ">
+              <Link to={`/tasks/${id}`}><h3><FontAwesomeIcon icon={icon}/>  {name}</h3></Link>
             </div> 
 
-              <h5 className="mb-1">{description}</h5>
-              <h5 className="mb-1"> Priority Level: {priorityLevel}</h5>
-              <h5 className="mb-1"> Time To Complete:{estimatedTimeToComplete} hours</h5>
-              <h5 className="mb-1">{timeSpent} hours</h5>
-              <h5 className="mb-1">{deadine}</h5>
-              <h5 className="mb-1">{creator}</h5>
+              <h5 className="mb-1 ">{description}</h5>
+              <h5 className="small mt-2"> Priority Level: {priorityLevel}</h5>
+              <h5 className="small mt-2"> Time To Complete: {estimatedTimeToComplete} hours</h5>
+              <h5 className="small mt-2"> Time Spent: {timeSpent} hours</h5>
+              <h5 className="small mt-2">Assigned to: {creator} </h5> 
 
 
-            <small>{period}, <FontAwesomeIcon icon={faGlobeEurope} size="xs" /> WorldWide</small>
+            <small>{startDate} to {deadline}, <FontAwesomeIcon icon={faCalendarAlt} size="xs" /> WorldWide</small>
             <div className="small mt-2">
               <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
               <span className={`${percentageColor} fw-bold`}>

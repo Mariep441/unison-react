@@ -1,22 +1,19 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, Redirect } from "react-router-dom";
 
-export const PublicRoute = ({
-  isAuthenticated,
-  component: Component,
-  ...rest
-}) => (
-  <Route
-    {...rest}
-    component={(props) =>
-      isAuthenticated ? <Redirect to="/profile" /> : <Component {...props} />
+export const PublicRoute = ({isAuthenticated, component: Component,...rest}) => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Route {...rest} component={props => 
+      isAuthenticated ? <Redirect to="/" /> : <Component {...props} />
     }
   />
-);
+  );
+};
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth && state.auth.isAuthenticated
-});
-
-export default connect(mapStateToProps)(PublicRoute);

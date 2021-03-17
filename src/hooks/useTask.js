@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import {getTask} from '../api/unison-server-api'
 
-const useTask = id => {
+const useTask = _id => {
     const [task, setTask] = useState(null);
     useEffect(() => {
-      getTask(id).then(task => {
+      getTask(_id).then(task => {
         setTask(task);
       });
-    }, [id]);
+    }, [_id]);
     return [task, setTask];
   };
   

@@ -20,7 +20,6 @@ const reducer = (state, action) => {
             { ...action.payload.task, feedback: action.payload.feedback },
           ],
         };
-      break;
     default:
       return state;
   }

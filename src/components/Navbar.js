@@ -1,27 +1,34 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCog, faEnvelopeOpen, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Image, Navbar, Dropdown, Container, ListGroup} from '@themesberg/react-bootstrap';
-
+import { Link } from 'react-router-dom';
 import { Routes } from "../router/AppRouter";
+import { getUser } from "../api/unison-server-api";
 
 import NOTIFICATIONS_DATA from "../data/notifications";
-
 
 
 export default (props) => {
   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
 
+
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    if (props._id) {
+      getUser(props._id)
+      .then(user => setUser(user))
+    }
+  })
+
   const markNotificationsAsRead = () => {
     setTimeout(() => {
       setNotifications(notifications.map(n => ({ ...n, read: true })));
     }, 300);
   };
-
-
 
   const Notification = (props) => {
     const { link, sender, image, time, message, read = false } = props;
@@ -84,16 +91,20 @@ export default (props) => {
               <Dropdown.Toggle as={Nav.Link}  className="pt-1 px-0">
                 <div className="media d-flex align-items-center">
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">Bonnie Green</span>
+                    <span className="mb-0 font-small fw-bold">{user.firstName}Boonie Green</span>
                   </div>
                 </div>
               </Dropdown.Toggle>
               <Dropdown.Menu className="user-dropdown dropdown-menu-right mt-2">
+                  <Dropdown.Item> 
+                    <Link to={`/settings`}><h7><FontAwesomeIcon icon={faUserCircle}/>  My Profile</h7></Link>
+                  </Dropdown.Item>
+
                   <Dropdown.Item href="#/settings" className="text-left text-primary fw-bold">
                     <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile
                   </Dropdown.Item>      
-                  <Dropdown.Item href="#/settings" className="text-left text-primary fw-bold">
-                    <FontAwesomeIcon icon={faCog} className="me-2" ></FontAwesomeIcon> Settings
+                  <Dropdown.Item href="/settings" className="text-left text-primary fw-bold">
+                    <FontAwesomeIcon icon={faCog} className="me-2" > </FontAwesomeIcon> Settings
                   </Dropdown.Item>
                   <Dropdown.Item href="#/settings" className="text-left text-primary fw-bold">
                     <FontAwesomeIcon icon={faEnvelopeOpen} className="me-2" ></FontAwesomeIcon> Messages

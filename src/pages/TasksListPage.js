@@ -4,6 +4,8 @@ import { faCheck, faCog, faHome, faPlus } from '@fortawesome/free-solid-svg-icon
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from '@themesberg/react-bootstrap';
 import PageTemplate from '../components/TemplateTaskTablePage'
 import { TasksContext } from '../contexts/tasksContext'
+import { Link } from 'react-router-dom';
+import { Routes } from "../router/AppRouter";
 
 export default () => {
   const context = useContext(TasksContext);
@@ -29,7 +31,7 @@ export default () => {
         <Row className="justify-content-between align-items-center">
           <Col xs={8} md={6} lg={3} xl={4}>
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-              <Button variant="outline-primary" size="sm"><FontAwesomeIcon icon={faPlus} className="me-2" />New Task</Button>
+              <Button variant="outline-primary" as={Link} to={Routes.NewTask.path} size="sm"><FontAwesomeIcon icon={faPlus} className="me-2" />New Task</Button>
             </div>
           </Col>
           <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
@@ -49,6 +51,7 @@ export default () => {
           </Col>
         </Row>
       </div>
+
 
       <PageTemplate 
         tasks={context.tasks} 

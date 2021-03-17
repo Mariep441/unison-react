@@ -8,7 +8,6 @@ import { TaskWidget } from "../components/Widgets";
 
 const TaskKanbanCard = ({task, action}) => {
 
-
   return (
 
     <Row className="justify-content-md-center">
@@ -22,8 +21,9 @@ const TaskKanbanCard = ({task, action}) => {
         estimatedTimeToComplete={task.estimatedTimeToComplete}
         period = "hours"
         timeSpent={task.timeSpent}
-        deadline={task.deadine}
-        creator={task.creator.name}
+        startDate={task.startDate}
+        deadline={task.deadline}
+        creator={task.creator.firstName}
 
         period="Feb 1 - Apr 1"
         percentage={`${Math.round(task.timeSpent/task.estimatedTimeToComplete*100)}`}
