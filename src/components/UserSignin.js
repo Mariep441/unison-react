@@ -1,31 +1,25 @@
 import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Col, Form, Card, Button, FormCheck, Container, InputGroup } from '@themesberg/react-bootstrap';
 import { Link, Redirect } from 'react-router-dom';
 import { Routes } from "../router/AppRouter";
 import { AuthContext } from '../contexts/authContext';
 
-
-export const UserSignin =  props => {
-  const context = useContext(AuthContext);
+export const UserSignin = (props) => {
   const [user, setUser] = useState("");
+  const authContext = useContext(AuthContext);
 
-  const login = () => {
-    context.authenticate(user);
+  const submit =  ()  => { 
+    localStorage.clear();
+    authContext.signin(user); 
+  };
 
-    if (context.isAuthenticated == true) {
-    return <Redirect to={{pathname: "/dashboard", state: {from: props.location} }}/>;
-  }
-};
+  const signin =  authContext.signin(); 
+  if (authContext.isAuthenticated === true){
+      return <Redirect to="/dashboard"/>;
+  } 
   
-  console.log(context.authenticate(user))
-  console.log(user)
-  console.log(context.isAuthenticated)
-  console.log(context.isError)
-  console.log(context.setAuthTokens)
-
   return (
     <main>
       <section className="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
@@ -52,7 +46,8 @@ export const UserSignin =  props => {
                       placeholder="example@company.com" 
                       name="email" 
                       value={user.email}
-                      onChange={e => setUser({ ...user, email: e.target.value })}/>
+                      onChange={e => setUser({ ...user, email: e.target.value })}
+                      />
                     </InputGroup>
                   </Form.Group>
                   <Form.Group>
@@ -67,7 +62,8 @@ export const UserSignin =  props => {
                         placeholder="Password"
                         name="Password"
                         value={user.password}
-                        onChange={e => setUser({ ...user, password: e.target.value })}/>
+                        onChange={e => setUser({ ...user, password: e.target.value })}
+                        />
                       </InputGroup>
                     </Form.Group>
                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -78,25 +74,9 @@ export const UserSignin =  props => {
                       <Card.Link className="small text-end">Lost password?</Card.Link>
                     </div>
                   </Form.Group>
-                  <Button variant="primary" onClick={login} type="submit" className="w-100">
-                    Sign in
-                  </Button>
+                  <Button variant="primary" onClick={submit} type="submit"> Sign in</Button>
                 </Form>
 
-                <div className="mt-3 mb-4 text-center">
-                  <span className="fw-normal">or login with</span>
-                </div>
-                <div className="d-flex justify-content-center my-4">
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-facebook me-2">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-twitter me-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pil text-dark">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </Button>
-                </div>
                 <div className="d-flex justify-content-center align-items-center mt-4">
                   <span className="fw-normal">
                     Not registered?

@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCog, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown, Breadcrumb, } from '@themesberg/react-bootstrap';
-import { NewTaskForm } from "../components/FormNewTask";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Breadcrumb, } from '@themesberg/react-bootstrap';
+import { NewTaskForm } from "../components/Tasks/FormNewTask";
 
 
 export default () => {

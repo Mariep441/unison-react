@@ -5,15 +5,19 @@ export const Routes = {
     Dashboard: { path: "/dashboard" },
     Tasks: { path: "/tasks" },
     NewTask: { path: "/newTask" },
+    NewProcess: { path: "/newProcess" },
     TaskDetails: { path: "/tasks/:_id" },
-    AddTaskFeedback: { path: "/feedbacks/form" },
+    AddTaskFeedback: { path: "/tasks/feedback/:_id" },
+    Feedbacks: { path: "/feedbacks" },
     TaskFeedback: { path: "/feedbacks/:_id" },
+
 
     AlertTasks: {path: "/tasks/alerts" },
 
     Calendars: { path: "/calendars" },
     Checklists: { path: "/checklists" },
     Kanban: { path: "/Kanban" },
+    Gantt: { path: "/Gantt" },
     Settings: { path: "/settings" },
     BootstrapTables: { path: "/tables/bootstrap-tables" },
     Billing: { path: "/billing" },
@@ -27,3 +31,4 @@ export const Routes = {
 
 
 };
+

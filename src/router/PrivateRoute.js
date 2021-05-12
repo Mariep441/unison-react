@@ -3,9 +3,9 @@ import { Route, Redirect } from 'react-router-dom';
 import { AuthContext } from '../contexts/authContext' 
 
 // components
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import Preloader from "../components/Preloader";
+import Sidebar from "../components/Navigation/Sidebar";
+import Navbar from "../components/Navigation/Navbar";
+import Preloader from "../components/Navigation/Preloader";
 
 export const PrivateRoute = props => {
   const { component: Component, ...rest} = props;

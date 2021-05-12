@@ -1,15 +1,11 @@
 import React, { useContext } from "react";
-import PageTemplate from '../components/TemplateTaskListPage'
+import PageTemplate from '../components/Kanban/TemplateTaskListPage'
 import {TasksContext} from '../contexts/tasksContext'
 import AddToAlertButton from '../components/Buttons/addToAlert'
 
 
-
-
 const TaskListPage = () => {
   const context = useContext(TasksContext);
-
-  console.log(context)
 
   return (
       <PageTemplate 

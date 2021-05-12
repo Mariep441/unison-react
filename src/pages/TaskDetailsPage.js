@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, Route, withRouter } from "react-router-dom";
-import TaskDetails from "../components/TaskDetails";
-import PageTemplate from "../components/TemplateTaskPage";
-import TaskFeedbacks from "../components/TaskFeedbacks";
+import TaskDetails from "../components/Tasks/TaskDetails";
+import PageTemplate from "../components/Tasks/TemplateTaskPage";
+import TaskFeedbacks from "../components/Feedback/TaskFeedbacks";
 import useTask from "../hooks/useTask";
 
 const TaskDetailsPage = props => {
   const {_id} = props.match.params;
   const [task] = useTask(_id) 
+  
   return (
     <>
     {task ? (

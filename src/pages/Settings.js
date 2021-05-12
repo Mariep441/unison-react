@@ -1,8 +1,8 @@
-import React, {useState, useCallback } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCog, faHome, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Col, Row, Button, Dropdown, Breadcrumb, } from '@themesberg/react-bootstrap';
-import { GeneralInfoForm } from "../components/Forms";
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Breadcrumb, } from '@themesberg/react-bootstrap';
+import { Settings } from "../components/Settings";
 
 
 export default () => {
@@ -27,7 +27,7 @@ export default () => {
 
  
       <Col xs={12} xl={12}>
-          <GeneralInfoForm />
+          <Settings />
       </Col>
     </>
   );

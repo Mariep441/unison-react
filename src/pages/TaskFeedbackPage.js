@@ -1,6 +1,6 @@
 import React from "react";
-import PageTemplate from '../components/TemplateTaskPage'
-import TaskFeedback from "../components/TaskFeedback";
+import PageTemplate from '../components/Tasks/TemplateTaskPage'
+import TaskFeedback from "../components/Feedback/TaskFeedback";
 
 const TaskFeedbackPage = (props) => {
   return (

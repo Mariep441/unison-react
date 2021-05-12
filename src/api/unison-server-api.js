@@ -1,47 +1,134 @@
-import axios from 'axios';
 
-
-const accessToken ='secretpasswordnotrevealedtoanyone';
-const apiUrl = 'http://localhost:4000/api';
-
-const authAxios = axios.create ({
-  baseURL: apiUrl,
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-  },
-});
-
-
+const token = localStorage.getItem('token');
 
 export const getTasks = () => {
-  return fetch(`http://localhost:4000/api/tasks`)
+  return fetch(`http://localhost:4000/api/tasks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => res.json());
+};
+
+export const getProgresses = () => {
+  return fetch(`http://localhost:4000/api/progress`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
     .then(res => res.json());
 };
 
 
 export const getTask = _id => {
-  return fetch(`http://localhost:4000/api/tasks/${_id}`)
+  return fetch(`http://localhost:4000/api/tasks/${_id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
     .then(res => res.json());
 };
 
+
+export const getTasksByProcess = (_id) => {
+  return fetch(`http://localhost:4000/api/processes/608eca82e4de9a910c30cb16/tasks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => res.json());
+};
+
+
+export const deleteTask = _id => {
+  return fetch(`http://localhost:4000/api/tasks/${_id}` , {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => res.json());
+};
+
+
 export const getProcesses = () => {
-  return fetch('http://localhost:4000/api/processes')
+  return fetch('http://localhost:4000/api/processes', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+      .then(res => res.json())
+};
+
+export const getFeedbacks = () => {
+  return fetch('http://localhost:4000/api/feedbacks', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
       .then(res => res.json())
 };
 
 export const getTaskFeedbacks = _id => {
-  return fetch(
-    authAxios.get(`/task/${_id}/feedbacks`))
-    .then(res => res.json())
-    .then(json => json.results);
-};
-
-export const getUsers = () => {
-  return fetch('http://localhost:4000/api/users')
+  return fetch(`http://localhost:4000/api/tasks/${_id}/feedbacks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
       .then(res => res.json())
+
 };
 
-export const getUser = _id => {
-  return fetch(`http://localhost:4000/api/users/${_id}`)
+export const deleteFeedback = _id => {
+  return fetch(`http://localhost:4000/api/feedbacks/${_id}` , {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
     .then(res => res.json());
 };
+
+
+export const getUsers = () => {
+  return fetch(`http://localhost:4000/api/users`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token} `,
+    }
+  })
+    .then(res => res.json());
+};
+
+
+
+export const getUser = _id => {
+  return fetch(`http://localhost:4000/api/users/${_id}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => res.json());
+};
+
+
+export const getUserbyEmail = email => {
+  return fetch(`http://localhost:4000/api/users/${email}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+    .then(res => res.json());
+};
+
+
