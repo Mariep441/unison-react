@@ -2,7 +2,7 @@
 const token = localStorage.getItem('token');
 
 export const getTasks = () => {
-  return fetch(`http://localhost:4000/api/tasks`, {
+  return fetch(`http://maracuyatech.com:4000/api/tasks`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -12,7 +12,7 @@ export const getTasks = () => {
 };
 
 export const getProgresses = () => {
-  return fetch(`http://localhost:4000/api/progress`, {
+  return fetch(`http://maracuyatech.com:4000/api/progress`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -23,7 +23,7 @@ export const getProgresses = () => {
 
 
 export const getTask = _id => {
-  return fetch(`http://localhost:4000/api/tasks/${_id}`, {
+  return fetch(`http://maracuyatech.com:4000/api/tasks/${_id}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ export const getTask = _id => {
 
 
 export const getTasksByProcess = (_id) => {
-  return fetch(`http://localhost:4000/api/processes/608eca82e4de9a910c30cb16/tasks`, {
+  return fetch(`http://maracuyatech.com:4000/api/processes/${_id}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ export const getTasksByProcess = (_id) => {
 
 
 export const deleteTask = _id => {
-  return fetch(`http://localhost:4000/api/tasks/${_id}` , {
+  return fetch(`http://maracuyatech.com:4000/api/tasks/${_id}` , {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ export const deleteTask = _id => {
 
 
 export const getProcesses = () => {
-  return fetch('http://localhost:4000/api/processes', {
+  return fetch('http://maracuyatech.com:4000/api/processes', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ export const getProcesses = () => {
 };
 
 export const getFeedbacks = () => {
-  return fetch('http://localhost:4000/api/feedbacks', {
+  return fetch('http://maracuyatech.com:4000/api/feedbacks', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ export const getFeedbacks = () => {
 };
 
 export const getTaskFeedbacks = _id => {
-  return fetch(`http://localhost:4000/api/tasks/${_id}/feedbacks`, {
+  return fetch(`http://maracuyatech.com:4000/api/tasks/${_id}/feedbacks`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -87,7 +87,7 @@ export const getTaskFeedbacks = _id => {
 };
 
 export const deleteFeedback = _id => {
-  return fetch(`http://localhost:4000/api/feedbacks/${_id}` , {
+  return fetch(`http://maracuyatech.com:4000/api/feedbacks/${_id}` , {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -98,7 +98,7 @@ export const deleteFeedback = _id => {
 
 
 export const getUsers = () => {
-  return fetch(`http://localhost:4000/api/users`, {
+  return fetch(`http://maracuyatech.com:4000/api/users`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export const getUsers = () => {
 
 
 export const getUser = _id => {
-  return fetch(`http://localhost:4000/api/users/${_id}`, {
+  return fetch(`http://maracuyatech.com:4000/api/users/${_id}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ export const getUser = _id => {
 
 
 export const getUserbyEmail = email => {
-  return fetch(`http://localhost:4000/api/users/${email}`, {
+  return fetch(`http://maracuyatech.com:4000/api/users/${email}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
