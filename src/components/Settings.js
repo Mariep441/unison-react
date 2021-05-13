@@ -17,7 +17,7 @@ export const Settings = () => {
 
   const submit = () => {
     
-    fetch(`http://localhost:4000/api/users/${user._id}`, { 
+    fetch(`http://maracuyatech.com:4000/api/users/${user._id}`, { 
       method: 'POST', 
       body: JSON.stringify( updatedUser ),
       headers: { 

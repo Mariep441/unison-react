@@ -20,7 +20,7 @@ export const NewTaskForm =  props => {
 
     const submit = e => {
       e.preventDefault()
-      fetch('http://localhost:4000/api/tasks', { 
+      fetch('http://maracuyatech.com:4000/api/tasks', { 
         method: 'POST', 
         body: JSON.stringify( task ),
         headers: {

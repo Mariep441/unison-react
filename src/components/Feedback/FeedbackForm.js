@@ -13,7 +13,7 @@ export default ({task}) => {
 
   const submit = () => {
     
-    fetch(`http://localhost:4000/api/feedbacks`, { 
+    fetch(`http://maracuyatech.com:4000/api/feedbacks`, { 
       method: 'POST', 
       body: JSON.stringify( feedback ),
       headers: {

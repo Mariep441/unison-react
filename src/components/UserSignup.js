@@ -14,7 +14,7 @@ export const UserSignup = () => {
 
   const submit = e => {
     e.preventDefault()
-    fetch('http://localhost:4000/api/users', { 
+    fetch('http://maracuyatech.com:4000/api/users', { 
       method: 'POST', 
       body: JSON.stringify( user ),
       headers: { 'Content-Type': 'application/json' },
