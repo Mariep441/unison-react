@@ -1,13 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPager, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import { faBootstrap,  faReact, faSass } from "@fortawesome/free-brands-svg-icons";
+import { faExternalLinkAlt, faPager, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBootstrap, faGithub, faReact, faSass } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Image, Button, Container, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { Routes } from "../router/AppRouter";
 import MockupPresentation from "../assets/img/mockup-presentation.png";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
+import GitHubButton from 'react-github-btn';
 
 export default () => {
   
@@ -35,6 +36,10 @@ export default () => {
               <h1 className="fw-bolder text-secondary">Unison React Dashboard</h1>
               <h7 className="text-muted fw-light mb-5 h5">Inspired by Volt React Dashboard</h7>
               <p className="text-muted fw-light mb-5 h5">Open source powered by React.js and Bootstrap 5</p>
+               <div className="d-flex align-items-center justify-content-center">
+                <GitHubButton className="mt-lg-2" href="https://github.com/Mariep441/unison-server" data-size="large" >Unison-Server</GitHubButton>
+                <GitHubButton className="mt-lg-2" href="https://github.com/Mariep441/unison-react" data-size="large" > Unison-React </GitHubButton>
+              </div>
             </Col>
           </Row>
         </Container>
