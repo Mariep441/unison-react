@@ -13,7 +13,7 @@ const AuthContextProvider = (props) => {
           setIsAuthenticated(true);
       }
       else {
-      fetch('http://maracuyatech.com:4000/api/users/authenticate', { 
+      fetch('https://maracuyatech.com/api/users/authenticate', { 
         method: 'POST', 
         body: JSON.stringify (user),
         headers: { 'Content-Type': 'application/json' },

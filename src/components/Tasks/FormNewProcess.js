@@ -14,7 +14,7 @@ export const NewProcessForm =  props => {
 
     const submit = e => {
       e.preventDefault()
-      fetch('http://maracuyatech.com:4000/api/processes', { 
+      fetch('https://maracuyatech.com/api/processes', { 
         method: 'POST', 
         body: JSON.stringify( process ),
         headers: { 
