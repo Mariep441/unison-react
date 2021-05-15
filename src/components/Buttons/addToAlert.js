@@ -8,7 +8,7 @@ const AddToAlertButton = ({ task }) => {
   const token = localStorage.getItem('token');
 
   const submit = e => {
-    fetch(`http://localhost:4000/api/tasks/${task._id}`, { 
+    fetch(`https://maracuyatech.com/api/tasks/${task._id}`, { 
       method: 'POST', 
       body: JSON.stringify( updatedTask ),
       headers: {

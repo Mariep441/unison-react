@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Col, Row, Card, Form, Button, InputGroup } from '@themesberg/react-bootstrap';
+import { Col, Row, Card, Form, Button } from '@themesberg/react-bootstrap';
 import { UsersContext } from '../../contexts/usersContext' 
 
 
@@ -13,7 +13,7 @@ export default ({task}) => {
 
   const submit = () => {
     
-    fetch(`http://maracuyatech.com:4000/api/feedbacks`, { 
+    fetch(`http://maracuyatech.com/api/feedbacks`, { 
       method: 'POST', 
       body: JSON.stringify( feedback ),
       headers: {
