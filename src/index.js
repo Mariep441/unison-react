@@ -55,7 +55,6 @@ function App(props)  {
   return (
     <BrowserRouter>
       < AuthContextProvider value={{ authToken, setAuthToken: setToken }}>  
-
       <div className="container-fluid">
         <PublicRoute exact path={Routes.Presentation.path} component={Presentation} />
         <PublicRoute exact path={Routes.Signin.path} component={Signin} />
@@ -65,9 +64,7 @@ function App(props)  {
         <PublicRoute exact path={Routes.NotFound.path} component={NotFoundPage} />
         <PublicRoute exact path={Routes.ServerError.path} component={ServerError} />
       </div>
-
       <div className="container-fluid">
-        
         < UsersContextProvider> 
         < ProcessesContextProvider> 
         < FeedbacksContextProvider> 
@@ -91,7 +88,6 @@ function App(props)  {
         </FeedbacksContextProvider>
         </ProcessesContextProvider>
         </UsersContextProvider>
-
       </div>
       </AuthContextProvider>  
   </BrowserRouter>

@@ -6,9 +6,7 @@ const AuthContextProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [authToken, setAuthToken] = useState();
  
-
     const signin = (user) => {
-
       if (localStorage.getItem('token') !== null ) {
           setIsAuthenticated(true);
       }
@@ -32,7 +30,6 @@ const AuthContextProvider = (props) => {
     }
   };
 
- 
   return (
     <AuthContext.Provider
       value={{
